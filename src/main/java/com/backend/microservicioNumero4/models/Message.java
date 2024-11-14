@@ -13,6 +13,14 @@ public class Message {
     private String content;
     private LocalDateTime timestamp;
 
+    public Message(String id, String senderId, String receiverId, String content, LocalDateTime timestamp) {
+        this.id = id;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.content = content;
+        this.timestamp = timestamp;
+    }
+
     // Getters y Setters
     public String getId() {
         return id;
