@@ -11,7 +11,7 @@ public class ChatTest {
 
     @Test
     public void testConstructorAndGetters() {
-        // Crear datos de prueba
+       
         String id = "chat123";
         LocalDateTime createdAt = LocalDateTime.now();
         LocalDateTime updateAt = LocalDateTime.now().plusDays(1);
@@ -23,10 +23,10 @@ public class ChatTest {
             new Message("2", "user2", "user1", "Hi!", LocalDateTime.now())
         );
 
-        // Crear instancia de Chat usando el constructor
+        
         Chat chat = new Chat(id, createdAt, updateAt, chatName, isGroupChat, participants, messages);
 
-        // Verificar los valores con getters
+        
         assertEquals(id, chat.getId());
         assertEquals(createdAt, chat.getCreatedAt());
         assertEquals(updateAt, chat.getUpdateAt());
@@ -38,10 +38,10 @@ public class ChatTest {
 
     @Test
     public void testSetters() {
-        // Crear instancia vacía de Chat
+        
         Chat chat = new Chat(null, null, null, null, null, null, null);
 
-        // Crear datos de prueba
+        
         String id = "chat123";
         LocalDateTime createdAt = LocalDateTime.now();
         LocalDateTime updateAt = LocalDateTime.now().plusDays(1);
@@ -53,7 +53,7 @@ public class ChatTest {
             new Message("2", "user2", "user1", "Hi!", LocalDateTime.now())
         );
 
-        // Usar setters
+        
         chat.setId(id);
         chat.setCreatedAt(createdAt);
         chat.setUpdateAt(updateAt);
@@ -62,7 +62,7 @@ public class ChatTest {
         chat.setParticipants(participants);
         chat.setMessages(messages);
 
-        // Verificar valores con getters
+        
         assertEquals(id, chat.getId());
         assertEquals(createdAt, chat.getCreatedAt());
         assertEquals(updateAt, chat.getUpdateAt());

@@ -9,31 +9,31 @@ public class NotificationTest {
 
     @Test
     public void testGettersAndSetters() {
-        // Crear una instancia de Notification
+        
         Notification notification = new Notification();
         
-        // Definir valores de prueba
+       
         String id = "notif123";
         String userId = "user1";
         String message = "This is a test notification.";
         LocalDateTime sentAt = LocalDateTime.now();
         boolean isRead = false;
 
-        // Usar los setters para asignar valores
+      
         notification.setId(id);
         notification.setUserId(userId);
         notification.setMessage(message);
         notification.setSentAt(sentAt);
         notification.setRead(isRead);
 
-        // Verificar que los getters devuelvan los valores esperados
+        
         assertEquals(id, notification.getId());
         assertEquals(userId, notification.getUserId());
         assertEquals(message, notification.getMessage());
         assertEquals(sentAt, notification.getSentAt());
         assertEquals(isRead, notification.isRead());
 
-        // Cambiar el valor de isRead y verificar el cambio
+        
         notification.setRead(true);
         assertTrue(notification.isRead());
     }
