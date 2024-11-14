@@ -1,35 +1,48 @@
 package com.backend.microservicioNumero4.models;
 
-import java.security.Timestamp;
-
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "Chats")
 public class Chat {
-
     @Id
-    
+    private Integer id;
+    private LocalDateTime createdAt;
+    private LocalDateTime updateAt;
     private String chatName;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
     private Boolean isGroupChat;
 
-
+    
     // Getters
-   
+    public Chat(Integer id, LocalDateTime createdAt, LocalDateTime updateAt, String chatName, Boolean isGroupChat) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.updateAt = updateAt;
+        this.chatName = chatName;
+        this.isGroupChat = isGroupChat;
+    }
 
     public String getChatName() {
         return chatName;
     }
 
-    public Timestamp getCreatedAt() {
+
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public Timestamp getUpdatedAt() {
-        return updatedAt;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
     }
 
     public Boolean getIsGroupChat() {
@@ -43,26 +56,16 @@ public class Chat {
         this.chatName = chatName;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 
     public void setIsGroupChat(Boolean isGroupChat) {
         this.isGroupChat = isGroupChat;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
-
-
-
-
-
-
-
-
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }
