@@ -1,74 +1,56 @@
 package com.backend.microservicioNumero4.models;
 
-import java.security.Timestamp;
-import java.util.UUID;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import java.time.LocalDateTime;
 
-@Document
+@Document(collection = "notifications")
 public class Notification {
-
     @Id
-    private UUID userId;
-    private Enum type;
-    private UUID sourceId;
+    private String id;
+    private String userId;
     private String message;
-    private Boolean isRead;
-    private Timestamp createdAt;
+    private LocalDateTime sentAt;
+    private boolean isRead;
 
-    // Getters
-    public UUID getUserId() {
+    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
         return userId;
     }
 
-    public Enum<?> getType() {
-        return type;
-    }
-
-    public UUID getSourceId() {
-        return sourceId;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public Boolean getIsRead() {
-        return isRead;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    // Setters
-    public void setUserId(UUID userId) {
-        this.userId = userId;
-    }
-
-    public void setType(Enum<?> type) {
-        this.type = type;
-    }
-
-    public void setSourceId(UUID sourceId) {
-        this.sourceId = sourceId;
-    }
-
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public void setIsRead(Boolean isRead) {
-        this.isRead = isRead;
+    public LocalDateTime getSentAt() {
+        return sentAt;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
+    public void setSentAt(LocalDateTime sentAt) {
+        this.sentAt = sentAt;
     }
 
+    public boolean isRead() {
+        return isRead;
+    }
 
-
-
-
+    public void setRead(boolean read) {
+        isRead = read;
+    }
 }

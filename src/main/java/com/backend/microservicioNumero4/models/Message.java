@@ -1,67 +1,56 @@
 package com.backend.microservicioNumero4.models;
 
-import java.security.Timestamp;
-import java.util.UUID;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.w3c.dom.Text;
+import java.time.LocalDateTime;
 
-
-@Document
+@Document(collection = "messages")
 public class Message {
-
     @Id
-    private UUID senderId;
-    private UUID receiverId;
-    private UUID chatId;
-    private Text content;
-    private Timestamp createdAt;
+    private String id;
+    private String senderId;
+    private String receiverId;
+    private String content;
+    private LocalDateTime timestamp;
 
-     // Getters
-     public UUID getSenderId() {
+    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSenderId() {
         return senderId;
     }
 
-    public UUID getReceiverId() {
-        return receiverId;
-    }
-
-    public UUID getChatId() {
-        return chatId;
-    }
-
-    public Text getContent() {
-        return content;
-    }
-
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    // Setters
-    public void setSenderId(UUID senderId) {
+    public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 
-    public void setReceiverId(UUID receiverId) {
+    public String getReceiverId() {
+        return receiverId;
+    }
+
+    public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
     }
 
-    public void setChatId(UUID chatId) {
-        this.chatId = chatId;
+    public String getContent() {
+        return content;
     }
 
-    public void setContent(Text content) {
+    public void setContent(String content) {
         this.content = content;
     }
 
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 }
-
-
-
-
-
