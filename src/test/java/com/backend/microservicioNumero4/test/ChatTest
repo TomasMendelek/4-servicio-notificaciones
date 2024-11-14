@@ -1,0 +1,74 @@
+package com.backend.microservicioNumero4.models;
+
+import org.junit.jupiter.api.Test;
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class ChatTest {
+
+    @Test
+    public void testConstructorAndGetters() {
+        // Crear datos de prueba
+        String id = "chat123";
+        LocalDateTime createdAt = LocalDateTime.now();
+        LocalDateTime updateAt = LocalDateTime.now().plusDays(1);
+        String chatName = "Group Chat";
+        Boolean isGroupChat = true;
+        List<String> participants = Arrays.asList("user1", "user2", "user3");
+        List<Message> messages = Arrays.asList(
+            new Message("1", "user1", "user2", "Hello!", LocalDateTime.now()),
+            new Message("2", "user2", "user1", "Hi!", LocalDateTime.now())
+        );
+
+        // Crear instancia de Chat usando el constructor
+        Chat chat = new Chat(id, createdAt, updateAt, chatName, isGroupChat, participants, messages);
+
+        // Verificar los valores con getters
+        assertEquals(id, chat.getId());
+        assertEquals(createdAt, chat.getCreatedAt());
+        assertEquals(updateAt, chat.getUpdateAt());
+        assertEquals(chatName, chat.getChatName());
+        assertTrue(chat.getIsGroupChat());
+        assertEquals(participants, chat.getParticipants());
+        assertEquals(messages, chat.getMessages());
+    }
+
+    @Test
+    public void testSetters() {
+        // Crear instancia vacía de Chat
+        Chat chat = new Chat(null, null, null, null, null, null, null);
+
+        // Crear datos de prueba
+        String id = "chat123";
+        LocalDateTime createdAt = LocalDateTime.now();
+        LocalDateTime updateAt = LocalDateTime.now().plusDays(1);
+        String chatName = "Group Chat";
+        Boolean isGroupChat = true;
+        List<String> participants = Arrays.asList("user1", "user2", "user3");
+        List<Message> messages = Arrays.asList(
+            new Message("1", "user1", "user2", "Hello!", LocalDateTime.now()),
+            new Message("2", "user2", "user1", "Hi!", LocalDateTime.now())
+        );
+
+        // Usar setters
+        chat.setId(id);
+        chat.setCreatedAt(createdAt);
+        chat.setUpdateAt(updateAt);
+        chat.setChatName(chatName);
+        chat.setIsGroupChat(isGroupChat);
+        chat.setParticipants(participants);
+        chat.setMessages(messages);
+
+        // Verificar valores con getters
+        assertEquals(id, chat.getId());
+        assertEquals(createdAt, chat.getCreatedAt());
+        assertEquals(updateAt, chat.getUpdateAt());
+        assertEquals(chatName, chat.getChatName());
+        assertTrue(chat.getIsGroupChat());
+        assertEquals(participants, chat.getParticipants());
+        assertEquals(messages, chat.getMessages());
+    }
+}
