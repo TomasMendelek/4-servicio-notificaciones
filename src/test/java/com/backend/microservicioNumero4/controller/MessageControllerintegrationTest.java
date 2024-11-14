@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(MessageController.class)
 @AutoConfigureMockMvc(addFilters = false)
-public class MessageControllerIntegrationTest {
+public class MessageControllerintegrationTest {
 
     @Autowired
     private MockMvc mockMvc;
